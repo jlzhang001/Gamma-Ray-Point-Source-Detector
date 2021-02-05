@@ -7,12 +7,15 @@ The material in this repoistory can be used to run a test example of the the pip
 
 In order to run the codes try to follow the next order:
 
->from-cats-to-locnet-input.py
+```
+from-cats-to-locnet-input.py
 
->from-locnet-input-to-unek-output.py
+from-locnet-input-to-unek-output.py
 
->from-unek-output-to-locnet-evaluation.py
+from-unek-output-to-locnet-evaluation.py
 
->from-locnet-evaluation-to-locnet-plots.ipynb
+from-locnet-evaluation-to-locnet-plots.ipynb
 
->from-locnet-evaluation-to-class-plots.ipynb
+from-locnet-evaluation-to-class-plots.ipynb
+
+```
