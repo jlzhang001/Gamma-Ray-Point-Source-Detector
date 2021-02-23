@@ -256,6 +256,7 @@ def stats_tp_fp_fn(test, pred, probability_threshold = 0.5, distance_degrees_thr
             #if (pred_cat == test_cat):
             if (pred_patch == test_patch): 
 
+            #if True:
                 #here we compute the geometrical distance between true and predicted sources
                 pred_test_dg = distance_degrees(pred_lon, pred_lat, test_lon, test_lat)
 
@@ -490,29 +491,34 @@ def stats_tp_fp_fn(test, pred, probability_threshold = 0.5, distance_degrees_thr
     return np.array(list_source_tp_fp_fn), tp_con, fp_con, fn_con
 
 def main():
-    path_to_repo = f"/home/bapanes/Research-Now/Gamma-Ray-Point-Source-Detector"
-    path_to_pred = f"{path_to_repo}/outputs-csv"
+    path_to_data = f"/home/bapanes/Research-Now/local/centroidnet-gr-local/data-solid"
+    path_to_pred = f"{path_to_data}/results-unek-100k"
 
     #summary file
-    global_stats_file = "unek_global_stats.csv"
+    global_stats_file = "unek_global_stats_solid.csv"
     header_line = "dataset,precision,recall\n"
     
-    f1 = open(os.path.join(path_to_pred, global_stats_file), "w+")
+    f1 = open(os.path.join(path_to_pred, global_stats_file), "a")
     f1.writelines(header_line)
     f1.close()
 
     #this is common for UNEK 
-    path_to_test = f"{path_to_repo}/data/test"
+    path_to_test = f"{path_to_data}/data-test/data-768-F0-B1"
     test_file_name = f"{path_to_test}/test.csv"
 
-    #UNEK like file folders
-    pred_file_name = f"{path_to_pred}/unek_prediction.csv"
-    stat_file_name = f"{path_to_pred}/unek_evaluation.csv"
+    #PS basis
+    #path_to_test = f"{path_to_data}/data-test/data_800_uniform_sky_cat_F0_B4_Id_FS/dataset_gamma_ray/test"
+    #test_file_name = f"{path_to_test}/test_ps_basis.csv"
 
-    print("test catalog: ", test_file_name)
-    print("inference file: ", pred_file_name)
-    print("evaluation file: ", stat_file_name)
-        
+    #UNEK like file folders
+    pred_file_name = f"{path_to_pred}/unek_prediction_f0_b1_solid.csv"
+    stat_file_name = f"{path_to_pred}/unek_evaluation_f0_b1_solid_v2.csv"
+    
+    print("test catalog: ", test_file_name[26:])
+    print("inference file: ", pred_file_name[26:])
+    print("evaluation file: ", stat_file_name[26:])
+
+    #print("numbers before bl algorihm")
     #############################################################
     #open csv files and transform to arrays
     #############################################################
@@ -636,7 +642,7 @@ def main():
     print('recall:', recall)       
         
     f1 = open(os.path.join(path_to_pred, global_stats_file), "a")
-    value_line = f"test,{precision},{recall}\n"
+    value_line = f"test_f0_b1,{precision},{recall}\n"
     f1.writelines(value_line)
     f1.close()
         

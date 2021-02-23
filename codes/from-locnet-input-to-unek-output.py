@@ -5,9 +5,9 @@ import random as rd
 
 from scipy.stats import poisson
 
-import tensorflow as tf
 from silence_tensorflow import silence_tensorflow
 silence_tensorflow()
+import tensorflow as tf
 
 from keras.models import load_model
 
@@ -238,17 +238,23 @@ nmax = 50
 
 def main():
 
+    ######################################################################################
+    #INPUT and OUTPUT files
+    #####################################################################################
+    
     #path to results
-    path_to_repo = f"/home/bapanes/Research-Now/Gamma-Ray-Point-Source-Detector"
-    path_to_results = f"{path_to_repo}/outputs-csv"
-
+    path_to_data = f"/home/bapanes/Research-Now/local/centroidnet-gr-local/data-solid"
+    path_to_results_file = f"{path_to_data}/results-unek-100k/unek_prediction_f2_b1_solid.csv"
+    
     #path to test file
-    path_to_test = f"{path_to_repo}/data/test"
+    path_to_test = f"{path_to_data}/data-test/data-768-F2-B1"
     test_file = f"{path_to_test}/test.csv"
 
     #unet model
-    unet_model_file = f"{path_to_repo}/models/unet_model.h5"
+    unet_model_file = f"{path_to_data}/models/unet_fit_generator_100k_f0_b4_50e_solid.h5"
 
+    ########################################################################################
+    
     #load Unet model weights
     unet_model = load_model(unet_model_file)
     
@@ -373,7 +379,7 @@ def main():
                                                    "catalog": list_catalog})
             
             #change the sep to , for the next round of outputs
-            output_data_frame.to_csv(f"{path_to_results}/unek_prediction.csv", sep=',', index=False)
+            output_data_frame.to_csv(f"{path_to_results_file}", sep=',', index=False)
             
 
     #number of patches with 50+ predicted sources

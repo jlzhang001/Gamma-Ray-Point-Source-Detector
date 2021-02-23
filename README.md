@@ -1,7 +1,7 @@
 # Gamma-Ray-Point-Source-Detector
 Localization and classification of gamma-ray point sources using Machine Learning
 
-![alt text](https://github.com/bapanes/Gamma-Ray-Point-Source-Detector/blob/main/figures/full-pipeline-high-lat.png)
+![alt text](https://github.com/bapanes/Gamma-Ray-Point-Source-Detector/blob/main/figures/full-pipeline-high-lat-pie.png)
 
 The material in this repoistory can be used to run a test example of the the pipeline developed in the paper arXiv:2102.02XXX in inference mode. Also, it includes routines to evaluate the test run and produce similar plots. 
 
@@ -18,4 +18,3 @@ from-locnet-evaluation-to-locnet-plots.ipynb
 
 from-locnet-evaluation-to-class-plots.ipynb
 
-```
