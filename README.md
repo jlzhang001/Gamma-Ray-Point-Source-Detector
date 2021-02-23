@@ -14,7 +14,6 @@ from-locnet-input-to-unek-output.py
 
 from-unek-output-to-locnet-evaluation.py
 
-from-locnet-evaluation-to-locnet-plots.ipynb
+localization-plots-solid-draft.ipynb
 
-from-locnet-evaluation-to-class-plots.ipynb
-
+classification-plots-snr-v1.ipynb
