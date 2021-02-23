@@ -17,3 +17,5 @@ from-unek-output-to-locnet-evaluation.py
 localization-plots-solid-draft.ipynb
 
 classification-plots-snr-v1.ipynb
+
+full-pipeline-piechart-snr-v1.ipynb
