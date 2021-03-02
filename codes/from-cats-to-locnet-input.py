@@ -461,34 +461,16 @@ def create_dataset(folder, file = "training.csv", n = 50, height = 128, width = 
         #catalog paths are generated inside the loop in order to run over more than one sky instance
         if faint=="F0":              
             #normal xml and fits catalogs
-            path_to_agn_test_cat_xml = f"{path_to_data}/data-raw/mock-ps/agn-xml/MOCK_4FGL_agn_{catalog_id}.xml"
-            path_to_psr_test_cat_xml = f"{path_to_data}/data-raw/mock-ps/psr-xml/MOCK_4FGL_psr_{catalog_id}.xml"
+            path_to_agn_test_cat_xml = f"{path_to_data}/data-raw/MOCK_4FGL_agn_{catalog_id}.xml"
+            path_to_psr_test_cat_xml = f"{path_to_data}/data-raw/MOCK_4FGL_psr_{catalog_id}.xml"
         
-            path_to_agn_test_cat_fits = f"{path_to_data}/data-raw/mock-ps/agn-fits/MOCK_4FGL_agn_{catalog_id}_healpix.fits"
-            path_to_psr_test_cat_fits = f"{path_to_data}/data-raw/mock-ps/psr-fits/MOCK_4FGL_psr_{catalog_id}_healpix.fits"
-
-        if faint=="F1":
-            path_to_agn_test_cat_xml = f"{path_to_data}/data-raw/mock-ps/faint-sources/MOCK_4FGL_agn_ultrafaint_sources.xml"
-            path_to_psr_test_cat_xml = f"{path_to_data}/data-raw/mock-ps/faint-sources/MOCK_4FGL_psr_ultrafaint_sources.xml"
-        
-            path_to_agn_test_cat_fits = f"{path_to_data}/data-raw/mock-ps/faint-sources/MOCK_SKY_PS_challenge_4FGL_9p5years_5Ebins_AGN_ULTRAFAINT.fits"
-            path_to_psr_test_cat_fits = f"{path_to_data}/data-raw/mock-ps/faint-sources/MOCK_4FGL_psr_ultrafaint_sources.fits"
-
-            catalog_id = 2351
-
-        if faint=="F2":
-            path_to_agn_test_cat_xml = f"{path_to_data}/data-raw/mock-ps/faint-sources/MOCK_4FGL_agn_powerlaw_and_flat_extrapolated.xml"
-            path_to_psr_test_cat_xml = f"{path_to_data}/data-raw/mock-ps/faint-sources/MOCK_4FGL_psr_power_extrapolated_and_flat.xml"
-        
-            path_to_agn_test_cat_fits = f"{path_to_data}/data-raw/mock-ps/faint-sources/MOCK_4FGL_agn_ultrafaint_sources_flat_powerlaw_extrapolation.fits"
-            path_to_psr_test_cat_fits = f"{path_to_data}/data-raw/mock-ps/faint-sources/MOCK_4FGL_psr_power_extrapolated_and_flat.fits"
-
-            catalog_id = 2352
+            path_to_agn_test_cat_fits = f"{path_to_data}/data-raw/MOCK_4FGL_agn_{catalog_id}_healpix.fits"
+            path_to_psr_test_cat_fits = f"{path_to_data}/data-raw/MOCK_4FGL_psr_{catalog_id}_healpix.fits"
             
         print("Backgroud file: ",path_to_background_fits) 
 
         #catalog_list_used.append(catalog_id)
-        print("Catalogue: %d"%cat_number)
+        print("Catalogue: %d, %d"%(cat_number, catalog_id))
 
         print("AGN catalogue xml: ",  path_to_agn_test_cat_xml)
         print("PSR catalogue xml: ",  path_to_psr_test_cat_xml)
@@ -525,14 +507,8 @@ def create_dataset(folder, file = "training.csv", n = 50, height = 128, width = 
             patch_agn = []
             patch_psr = []
 
-            #predefined list of longitude and latitude positions from Gulli
-            #notice that longitude has values between 0 and 360, so we shift this value
-            #to match our previous approach
-            lon = longitude[k]-180
             #the proper transformation should be
-            #lon = (longitude[k]+180)%360 - 180
-            #which is going to change the order of the patches but no the list of longitude coordinates
-
+            lon = (longitude[k]+180)%360 - 180
             lat = latitude[k]
             
             for i in range(Nbins):
@@ -674,19 +650,13 @@ def create_dataset(folder, file = "training.csv", n = 50, height = 128, width = 
 #given AGN, PSR and Background fits file, generate 768 patches per sky instance 
 
 #path to repo
-path_to_data = '/home/bapanes/Research-Now/local/centroidnet-gr-local/data-solid'
+path_to_data = '/home/bapanes/Research-Now/Gamma-Ray-Point-Source-Detector'
 
 #path to backgroud B1
-#path_to_background_fits = f"{path_to_data}/data-raw/iem-igrb/lat_alldata_9.5years_4fgl_P8R3_ULTRACLEANVETO_V2_FRONT_zmax105_gti_HEALPIX_256_IEM_V07_IGRB_P8R3_ULTRACLEANVETO_V2_FRONT+BACK.fits"
-
-#path to background B2
-#path_to_background_fits = f"{path_to_data}/data-raw/iem-igrb/IEM_SNR_z4_Ts150_IGRB_P8R2_ULTRACLEANVETO_V6_FRONT+BACK_9.5years_5EBINS.fits"
-
-#path to background B3
-path_to_background_fits = f"{path_to_data}/data-raw/iem-igrb/IEM_v06_IGRB_P8R2_ULTRACLEANVETO_V6_FRONT+BACK_9.5years_5EBINS.fits"
+path_to_background_fits = f"{path_to_data}/data-raw/lat_alldata_9.5years_4fgl_P8R3_ULTRACLEANVETO_V2_FRONT_zmax105_gti_HEALPIX_256_IEM_V07_IGRB_P8R3_ULTRACLEANVETO_V2_FRONT+BACK.fits"
 
 #path to output data
-test_folder = f"{path_to_data}/data-test/data-768-F0-B3"
+test_folder = f"{path_to_data}/data-test/data-768-F0-B1"
 
 #Gulli's approach to generate a more uniform coverage of the sky
 longitude, latitude = hp.pix2ang(8, np.arange(hp.nside2npix(8)),lonlat=True)
@@ -696,7 +666,7 @@ max_patches_per_catalog = len(longitude)
 
 #catalog list
 catalog_list = []
-catalog_list.append(235)
+catalog_list.append(400)
 
 #create output folder
 os.makedirs(test_folder, exist_ok=True)
