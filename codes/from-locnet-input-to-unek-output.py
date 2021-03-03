@@ -243,15 +243,15 @@ def main():
     #####################################################################################
     
     #path to results
-    path_to_data = f"/home/bapanes/Research-Now/local/centroidnet-gr-local/data-solid"
-    path_to_results_file = f"{path_to_data}/results-unek-100k/unek_prediction_f2_b1_solid.csv"
+    path_to_data = f"/home/bapanes/Research-Now/Gamma-Ray-Point-Source-Detector"
+    path_to_results_file = f"{path_to_data}/outputs-csv/unek_prediction_test.csv"
     
     #path to test file
-    path_to_test = f"{path_to_data}/data-test/data-768-F2-B1"
+    path_to_test = f"{path_to_data}/data-test/data-768-F0-B1"
     test_file = f"{path_to_test}/test.csv"
 
     #unet model
-    unet_model_file = f"{path_to_data}/models/unet_fit_generator_100k_f0_b4_50e_solid.h5"
+    unet_model_file = f"{path_to_data}/models/unet_model.h5"
 
     ########################################################################################
     
