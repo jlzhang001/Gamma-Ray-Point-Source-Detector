@@ -13,17 +13,14 @@ from-cats-to-locnet-input.py
 from-locnet-input-to-unek-output.py
 
 from-unek-output-to-locnet-evaluation.py
-
 ```
 
 Codes to visualize localization and classification results
 
 ```
-
 localization-plots.ipynb
 
 classification-plots.ipynb
 
 full-pipeline-piechart.ipynb
-
 ```
