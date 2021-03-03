@@ -5,7 +5,7 @@ Localization and classification of gamma-ray point sources using Machine Learnin
 
 The material in this repoistory can be used to run a test example of the the pipeline developed in the paper arXiv:2102.02XXX in inference mode. Also, it includes routines to evaluate the test run and produce similar plots. 
 
-In order to run the codes try to follow the next order:
+Codes to run patch generation, UNEK predictions and localization evaluations
 
 ```
 from-cats-to-locnet-input.py
@@ -14,8 +14,16 @@ from-locnet-input-to-unek-output.py
 
 from-unek-output-to-locnet-evaluation.py
 
-localization-plots-solid-draft.ipynb
+```
 
-classification-plots-snr-v1.ipynb
+Codes to visualize localization and classification results
 
-full-pipeline-piechart-snr-v1.ipynb
+```
+
+localization-plots.ipynb
+
+classification-plots.ipynb
+
+full-pipeline-piechart.ipynb
+
+```

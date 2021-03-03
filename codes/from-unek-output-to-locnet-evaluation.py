@@ -115,8 +115,8 @@ def stats_tp_fp_fn(test, pred, probability_threshold = 0.5, distance_degrees_thr
         test_yc = int((test_aux[aux_con, test_ymin_idx] + test_aux[aux_con, test_ymax_idx])//2)
         test_xc = int((test_aux[aux_con, test_xmin_idx] + test_aux[aux_con, test_xmax_idx])//2)
 
-        xmin_b, xmax_b, ymin_b, ymax_b = max(0,test_xc-box_inf),min(xsize-1,test_xc+box_sup),\
-                                         max(0,test_yc-box_inf),min(xsize-1,test_yc+box_sup)
+        xmin_b, xmax_b, ymin_b, ymax_b = max(0,test_xc-box_inf),min(xsize,test_xc+box_sup),\
+                                         max(0,test_yc-box_inf),min(xsize,test_yc+box_sup)
         
         #we get rid of test border line stars since we do not want to count them as false negatives
         if (((xmax_b-xmin_b) != r_b) or ((ymax_b-ymin_b) != r_b)):
@@ -144,8 +144,8 @@ def stats_tp_fp_fn(test, pred, probability_threshold = 0.5, distance_degrees_thr
         pred_sbr_box = pred[pred_con, pred_sbr_box_idx]
         
         #borderline in pred is just skipped
-        xmin_b, xmax_b, ymin_b, ymax_b = max(0,int(pred_xc)-box_inf),min(xsize-1,int(pred_xc)+box_sup),\
-                                         max(0,int(pred_yc)-box_inf),min(xsize-1,int(pred_yc)+box_sup)
+        xmin_b, xmax_b, ymin_b, ymax_b = max(0,int(pred_xc)-box_inf),min(xsize,int(pred_xc)+box_sup),\
+                                         max(0,int(pred_yc)-box_inf),min(xsize,int(pred_yc)+box_sup)
         
         #we get rid of test border line stars since we do not want to count them as false negatives
         if bl_alg:
@@ -491,14 +491,14 @@ def stats_tp_fp_fn(test, pred, probability_threshold = 0.5, distance_degrees_thr
     return np.array(list_source_tp_fp_fn), tp_con, fp_con, fn_con
 
 def main():
-    path_to_data = f"/home/bapanes/Research-Now/local/centroidnet-gr-local/data-solid"
-    path_to_pred = f"{path_to_data}/results-unek-100k"
+    path_to_data = f"/home/bapanes/Research-Now/Gamma-Ray-Point-Source-Detector"
+    path_to_pred = f"{path_to_data}/outputs-csv"
 
     #summary file
-    global_stats_file = "unek_global_stats_solid.csv"
+    global_stats_file = "global_stats.csv"
     header_line = "dataset,precision,recall\n"
     
-    f1 = open(os.path.join(path_to_pred, global_stats_file), "a")
+    f1 = open(os.path.join(path_to_pred, global_stats_file), "a+")
     f1.writelines(header_line)
     f1.close()
 
@@ -511,8 +511,8 @@ def main():
     #test_file_name = f"{path_to_test}/test_ps_basis.csv"
 
     #UNEK like file folders
-    pred_file_name = f"{path_to_pred}/unek_prediction_f0_b1_solid.csv"
-    stat_file_name = f"{path_to_pred}/unek_evaluation_f0_b1_solid_v2.csv"
+    pred_file_name = f"{path_to_pred}/unek_prediction_test.csv"
+    stat_file_name = f"{path_to_pred}/unek_evaluation_test.csv"
     
     print("test catalog: ", test_file_name[26:])
     print("inference file: ", pred_file_name[26:])
@@ -641,7 +641,7 @@ def main():
     print('precision: ', precision)
     print('recall:', recall)       
         
-    f1 = open(os.path.join(path_to_pred, global_stats_file), "a")
+    f1 = open(os.path.join(path_to_pred, global_stats_file), "a+")
     value_line = f"test_f0_b1,{precision},{recall}\n"
     f1.writelines(value_line)
     f1.close()
