@@ -507,8 +507,9 @@ def create_dataset(folder, file = "training.csv", n = 50, height = 128, width = 
             patch_agn = []
             patch_psr = []
 
-            #the proper transformation should be
+            #transformation from 0-360 to -180-180
             lon = (longitude[k]+180)%360 - 180
+
             lat = latitude[k]
             
             for i in range(Nbins):
