@@ -14,6 +14,7 @@ import numpy as np
 import healpy as hp
 import sys
 import matplotlib.pyplot as plt
+import matplotlib
 from xml.dom import minidom
 import math as mt
 
@@ -674,6 +675,8 @@ os.makedirs(test_folder, exist_ok=True)
 print("test folder: ", test_folder)
 
 #generate patch catalog
+previous_plot_backend=matplotlib.get_backend()
+matplotlib.use('Agg')
 cats_test = create_dataset(test_folder,  file="test.csv", prefix="test", n=len(longitude), faint="F0", init_con=0)
-
-
+#cats_test = create_dataset(test_folder,  file="test.csv", prefix="test", n=5, faint="F0", init_con=0)
+matplotlib.use(previous_plot_backend)
