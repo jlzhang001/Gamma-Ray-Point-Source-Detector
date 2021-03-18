@@ -39,7 +39,7 @@ The data that is used to run the previous two codes can be found in the zenodo.o
 
 Along with this GitHub repository we also realease a dataset in the zenodo.org platform. This data includes thousand of patches, with their corresponding CSV files, which are useful to train new localization and classification algorithms. Also, we made available five blind data sets for tests, which can be used to make comparisons between different algorithms. All this material is available in the following link
 
-[Gamma-ray Point Sources Detection and Classification Project](https://zenodo.org/record/4587205#.YFOKBSPhD_Q)
+[ZENODO page: Gamma-ray Point Sources Detection and Classification Project](https://zenodo.org/record/4587205#.YFOKBSPhD_Q)
 
 Notice that compressed files (.tgz) must be extracted by using the following command
 
