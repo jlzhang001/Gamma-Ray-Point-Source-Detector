@@ -25,6 +25,16 @@ classification-plots.ipynb
 full-pipeline-piechart.ipynb
 ```
 
+Codes to train localization and classificatoin algorithms
+
+```
+localization-net-training.py
+
+classification-net-training.py
+```
+
+The data that is used to run the previous two codes can be found in the zenodo.org dataset associated to this repository, see details below
+
 ## ZENODO datasets for training and test
 
 Along with this GitHub repository we also realease a dataset in the zenodo.org platform. This data includes thousand of patches, with their corresponding CSV files, which are useful to train new localization and classification algorithms. Also, we made available five blind data sets for tests, which can be used to make comparisons between different algorithms. All this material is available in the following link
