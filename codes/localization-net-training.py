@@ -202,7 +202,7 @@ def generator_valid(patches_list, batch_size):
         counter += 1
 
 #####################################################
-#solid angle correction on the fly
+#main program
 #####################################################
 
 epochs=50
