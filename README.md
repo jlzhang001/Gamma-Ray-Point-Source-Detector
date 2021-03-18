@@ -44,6 +44,6 @@ Along with this GitHub repository we also realease a dataset in the zenodo.org p
 Notice that compressed files (.tgz) must be extracted by using the following command
 
 ```
-tar -xjvf file_name 
+tar -xjvf file_name.tgz 
 ```
 
