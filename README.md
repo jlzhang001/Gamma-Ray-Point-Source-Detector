@@ -27,9 +27,9 @@ full-pipeline-piechart.ipynb
 
 ## ZENODO datasets for training and test
 
-Along with this GitHub repository we also realease a dataset in the zenodo.org platform. This set contains thousand of patches with corresponding CSV files, which are useful to train new localization and classification algorithms. Also, we made available five secret data sets for blind tests, that can be used to make comparisons between different algorithms. All this material is available in the following link
+Along with this GitHub repository we also realease a dataset in the zenodo.org platform. This data includes thousand of patches, with their corresponding CSV files, which are useful to train new localization and classification algorithms. Also, we made available five blind data sets for tests, which can be used to make comparisons between different algorithms. All this material is available in the following link
 
-[gamma-ray point source zenodo dataset](https://zenodo.org/record/4587205#.YFOKBSPhD_Q)
+[Gamma-ray Point Sources Detection and Classification Project](https://zenodo.org/record/4587205#.YFOKBSPhD_Q)
 
 Notice that compressed files (.tgz) must be extracted by using the following command
 
