@@ -25,6 +25,8 @@ classification-plots.ipynb
 full-pipeline-piechart.ipynb
 ```
 
+## ZENODO datasets for training and test
+
 Along with this GitHub repository we also realease a dataset in zenodo.org that contains thousand of patches which are useful to train new localization and classification algorithms. Also, we made available secret data sets for test, that can be used to compare between different algorithms. All this material is available in the following link
 
 [gamma-ray point source zenodo dataset](https://zenodo.org/record/4587205#.YFOKBSPhD_Q)
