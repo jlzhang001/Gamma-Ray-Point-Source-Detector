@@ -658,7 +658,7 @@ path_to_data = '/home/bapanes/Research-Now/Gamma-Ray-Point-Source-Detector'
 path_to_background_fits = f"{path_to_data}/data-raw/lat_alldata_9.5years_4fgl_P8R3_ULTRACLEANVETO_V2_FRONT_zmax105_gti_HEALPIX_256_IEM_V07_IGRB_P8R3_ULTRACLEANVETO_V2_FRONT+BACK.fits"
 
 #path to output data
-test_folder = f"{path_to_data}/data-test/data-768-F0-B1"
+test_folder = f"{path_to_data}/../local/dm-local/data-test/data-768-F0-B1"
 
 #Gulli's approach to generate a more uniform coverage of the sky
 longitude, latitude = hp.pix2ang(8, np.arange(hp.nside2npix(8)),lonlat=True)
