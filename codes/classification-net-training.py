@@ -220,7 +220,7 @@ with open(pickle_file,"rb") as f:
 model = get_cnn()
 
 #model compile
-model.compile(optimizer=Adam(), loss="binary_crossentropy", metrics=[categorical_accuracy])
+model.compile(optimizer=Adam(), loss="categorical_crossentropy", metrics=[categorical_accuracy])
 
 earlystopper = EarlyStopping(monitor='val_loss', patience=50, verbose=1, min_delta=1e-7)
 
