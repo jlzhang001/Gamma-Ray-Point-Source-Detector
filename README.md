@@ -3,7 +3,7 @@ Localization and classification of gamma-ray point sources using Machine Learnin
 
 ![alt text](https://github.com/bapanes/Gamma-Ray-Point-Source-Detector/blob/main/figures/full-pipeline-high-lat-pie.png)
 
-The material in this repoistory can be used to run a test example of the the pipeline developed in the paper arXiv:2102.02XXX in inference mode. Also, it includes routines to evaluate the test run and produce similar plots. 
+The material in this repoistory can be used to run a test example of the the pipeline developed in the paper [arXiv:2103.11068](https://arxiv.org/abs/2103.11068) in inference mode. Also, it includes routines to evaluate the test run and produce similar plots. Training algorithms for localization and classification can be used in combination with the data available at zenodo.org (see below).  
 
 Codes to run patch generation, UNEK predictions and localization evaluations
 
