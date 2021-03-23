@@ -41,7 +41,7 @@ Along with this GitHub repository we also realease a dataset in the zenodo.org p
 
 [ZENODO page: Gamma-ray Point Sources Detection and Classification Project](https://zenodo.org/record/4587205#.YFOKBSPhD_Q)
 
-Notice that compressed files (.tgz) must be extracted by using the following command
+Notice that some of the compressed files (.tgz) must be extracted by using the following command
 
 ```
 tar -xjvf file_name.tgz 
