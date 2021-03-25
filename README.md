@@ -1,5 +1,5 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4587205.svg)](https://doi.org/10.5281/zenodo.4587205)
-[![arXiv](https://img.shields.io/badge/arXiv-2103.11068-green.svg)](https://arxiv.org/abs/2103.11068)
+[![arXiv](https://img.shields.io/badge/arXiv-2103.11068-darkgreen.svg)](https://arxiv.org/abs/2103.11068)
 
 # Gamma-Ray-Point-Source-Detector
 Localization and classification of gamma-ray point sources using Machine Learning
