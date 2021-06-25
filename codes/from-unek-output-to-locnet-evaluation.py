@@ -591,7 +591,9 @@ def main():
         if IEM_ph > 0:
                
             if AGN_ph >= PSR_ph:
-                SNR_ph = AGN_ph/np.sqrt(PSR_ph + IEM_ph + PSR_ph)
+                #The following line was corrected on June 25, 2021
+                #Saptashawa found the bug
+                SNR_ph = AGN_ph/np.sqrt(PSR_ph + IEM_ph + AGN_ph)
                 SBR_ph = AGN_ph/(PSR_ph + IEM_ph)
                     
             if PSR_ph > AGN_ph:

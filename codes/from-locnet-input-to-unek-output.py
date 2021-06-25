@@ -247,7 +247,7 @@ def main():
     path_to_results_file = f"{path_to_data}/outputs-csv/unek_prediction_test.csv"
     
     #path to test file
-    path_to_test = f"{path_to_data}/data-test/data-768-F0-B1"
+    path_to_test = f"{path_to_data}/../local/dm-local/data-test/data-768-F0-B1"
     test_file = f"{path_to_test}/test.csv"
 
     #unet model
